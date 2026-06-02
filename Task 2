@@ -1,0 +1,19 @@
+create database tasks;
+use tasks;
+create table bank(
+	  cus_id int auto_increment primary key,
+      cus_name varchar(20),
+      bank_balance double ,
+      active_status varchar (20)
+);
+desc bank;
+
+insert into bank (cus_name,bank_balance,active_status) values ('Pradeep',200000,'Active'),('Vasanth',10000,'Active'),('vinoth',400,'Active');
+select * from bank; 
+insert into bank (cus_name,bank_balance,active_status) values ('Aswanth',0,'Active');
+select * from bank;
+set sql_safe_updates = 0;
+update bank set active_status = ('inactive') where bank_balance < 500;
+select * from bank;
+delete from bank where bank_balance = 0 and active_status= 'Inactive';
+select * from bank;
