@@ -1,3 +1,8 @@
+Que: Create a table Bank which should contains columns like Cust id, Cust name, Bank Balance, active status. Insert some data into that table.
+Update the active status to 'Inactive' who ever has Bank Balance below 500.
+Delete the customer details who ever has bank balance as 0 and active status as 'Inactive'.
+
+
 create database tasks;
 use tasks;
 create table bank(
