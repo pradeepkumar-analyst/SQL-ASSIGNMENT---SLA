@@ -1,0 +1,27 @@
+Que:  Create a table shopping and insert values for different products.
+Print the products with highest and lowest price using aggregate functions
+
+create table shopping(
+   product_id int auto_increment primary key,
+   product_name varchar(20),
+   customer_name varchar (20),
+   product_prize float
+);
+desc shopping;
+insert into shopping (product_name,customer_name,product_prize) values ('soap','raghul',20),('shampoo','Daniel',10),('Vinoth','Powder',60);
+insert into shopping (product_name,customer_name,product_prize) values ('soap','ravi',50),('shampoo','David',100),('Vinith','Powder',600);
+insert into shopping (product_name,customer_name,product_prize) values ('soap','ram',90),('shampoo','Danny',200),('Viswa','Powder',75);
+select * from shopping;
+
+select max(product_prize) as largest_prize from shopping;
+select min(product_prize) as smallest_prize from shopping;
+
+select product_name, max(product_prize) as maximum_prize 
+from shopping 
+where product_name = 'soap'
+group by product_name;
+
+select product_name, min(product_prize) as manimum_prize 
+from shopping 
+where product_name = 'shampoo'
+group by product_name;
