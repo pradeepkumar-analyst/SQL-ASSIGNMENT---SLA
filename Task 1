@@ -1,6 +1,7 @@
 ####### Task 1 ########
-Que: Create a Database named E-Commerce, Create a table as Amazon with product_id,Product_name,price and Qty
+Question: Create a Database named E-Commerce, Create a table as Amazon with product_id,Product_name,price and Qty
 
+Query:
 create database E_commerce;
 use E_commerce;
 create table Amazon (
