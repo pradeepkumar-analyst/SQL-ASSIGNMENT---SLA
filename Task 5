@@ -1,0 +1,56 @@
+Question:    Create 2 tables shopping and order.
+shopping should have columns like product_name,product_id,price
+Order should have columns like product_id,order_status,shipping_detail
+
+Join (Left,Right,Inner and Outer Join) this 2 tables based on product_id and display the result.
+
+
+
+
+Query:
+create table shoppings (
+     product_name varchar(20),
+     product_id int ,
+     price float
+);
+
+create table orders(
+   product_id int,
+   order_status varchar(10),
+   shipping_details varchar(20)
+);
+
+insert into shoppings (product_name, product_id,price) values ('plays_station',1,20000),('Video_game',2,2000),('Graphic_card',3,50000),
+('Ups',4,10000),('laptop',5,65000);
+insert into orders (product_id, order_status,shipping_details) values (1,'Active','Order delivered'),(2,'Inactive','Order cancelled'),(3,'Active','Order shipped'),
+(4,'Active','Order on the way'),(5,'Active','Order out');
+
+select * from shoppings;
+select * from orders;
+
+insert into shoppings (product_name, product_id,price) values ('mobile',1,null),(null,2,2000);
+insert into orders (product_id, order_status,shipping_details) values (1,null,'Order delivered'),(2,'Inactive', null);
+
+#left join 
+select shoppings.product_name, orders.order_status
+from shoppings left join orders 
+on shoppings.product_id = orders.product_id;
+
+#Right join 
+select shoppings.product_name, orders.order_status
+from shoppings Right join orders 
+on shoppings.product_id = orders.product_id;
+
+#Inner Join 
+select shoppings.product_name, orders.order_status,shoppings.price
+from shoppings Inner join orders 
+on shoppings.product_id = orders.product_id;
+
+#Outer Join 
+select shoppings.product_name, orders.order_status,shoppings.price
+from shoppings left join orders 
+on shoppings.product_id = orders.product_id 
+union 
+select shoppings.product_name, orders.order_status,shoppings.price
+from shoppings right join orders 
+on shoppings.product_id = orders.product_id;
