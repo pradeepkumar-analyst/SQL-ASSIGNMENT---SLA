@@ -1,6 +1,8 @@
-Que:  Create a table shopping and insert values for different products.
+Question:  Create a table shopping and insert values for different products.
 Print the products with highest and lowest price using aggregate functions
 
+
+Query:
 create table shopping(
    product_id int auto_increment primary key,
    product_name varchar(20),
