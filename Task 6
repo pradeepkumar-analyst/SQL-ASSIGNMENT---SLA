@@ -1,0 +1,30 @@
+Question 1: Create a table for students which should contain the following columns
+id, name, subject,mark,course
+Write subquery which should return student details whose mark should be grater than average.
+
+Query:
+create table students (
+    std_id int auto_increment primary key,
+	std_name varchar (20),
+    std_subject varchar (10),
+    std_mark float,
+    course varchar(20)
+);
+
+desc students;
+insert into students (std_name,std_subject,std_mark,course) values ('Pradeep','English',100,'Data analyst'),
+('Poorvesh','Tamil',76,'Data Science'),('Pugazh','English',60,'Data analyst'),('Praveen','Maths',72,'Data Engineer'),
+('Pragnesh','Science',34,'Data analyst');
+
+select * from students;
+
+select  avg(std_mark) from students;
+#1.
+select std_id,std_name,std_mark,course from students
+where std_mark > (select avg(std_mark) from students);
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 2: Write a multi row subquery which should contain students with marks > 50
+
+Query: 
+select std_name,std_mark from students
+where std_mark IN (select  std_mark from students where std_mark >50);
